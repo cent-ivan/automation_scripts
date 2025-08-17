@@ -21,16 +21,17 @@ def create_folder():
         if folder in os.listdir(): 
             continue
         else:
-            path  =  os.getcwd() + f"\\{folder}" #gets the current word directory and adds the folder name
+            #gets the current word directory and adds the folder name
+            path  =  os.getcwd() + f"\\{folder}"
             os.mkdir(path)
     print("All folders created")
     main()
 
 
-def add_file(key):
+def add_file(key: str):
     dst =  os.getcwd() + f"\\{filename[key]}" #get the target path of where the file will move
     for content in os.listdir():
-        split_content = content.split(".") #turns into list, divides the filename and extension
+        split_content = content.split(".") #['sample','py']
 
         if split_content[-1] == key: #checks the extension if it is in the right directory
             file  = ".".join(split_content)
